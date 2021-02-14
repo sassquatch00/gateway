@@ -27,8 +27,10 @@ if (os.path.isdir(serialDevDir)):
         while(True):
 
             receivedMsg = serial.readline()
+            print(receivedMsg)
             s.send(receivedMsg)
             data = s.recv(BUFFER_SIZE)
+            s.close()
     else:
 
         print('No serial devices connected') 
@@ -36,7 +38,5 @@ if (os.path.isdir(serialDevDir)):
 else:
 
     print(serialDevDir + ' does not exist') 
-
-s.close()
 
 print ("received data:", data)
