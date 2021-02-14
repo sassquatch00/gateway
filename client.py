@@ -26,7 +26,7 @@ if (os.path.isdir(serialDevDir)):
 
         while(True):
 
-            receivedMsg = serial.readline()
+            receivedMsg = uart.readline()
             print(receivedMsg)
             s.send(receivedMsg)
             data = s.recv(BUFFER_SIZE)
