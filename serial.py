@@ -1,6 +1,6 @@
-import serial
+from  serial import Serial
 
-ser = serial.Serial('/dev/ttyACM0', 115200, timeout=1)
+ser = serial('/dev/ttyACM0', 115200, timeout=1)
 
 while True:
     rcv = ser.readline()
