@@ -30,7 +30,6 @@ if (os.path.isdir(serialDevDir)):
             print(receivedMsg)
             s.send(receivedMsg)
             data = s.recv(BUFFER_SIZE)
-            s.close()
     else:
 
         print('No serial devices connected') 
