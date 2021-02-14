@@ -1,4 +1,4 @@
-from microbit import *
+import serial
 
 uart.init(baudrate=9600, bits=8, parity=None, stop=1, tx=None, rx=None)
 display.scroll("ready", delay=150, wait=True, loop=False, monospace=False)
