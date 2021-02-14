@@ -1,4 +1,4 @@
-import socket
+import socket, threading, sys
 
 TCP_IP = '192.168.1.219' 
 TCP_PORT = 5006
@@ -10,9 +10,12 @@ s.listen(1)
 
 conn, addr = s.accept()
 print ('Connection address:', addr)
-while 1:
-    data = conn.recv(BUFFER_SIZE)
-    if not data: break
-    print ("received data:", data)
-    conn.send(data)  # echo
-    conn.close()
+while True:
+    command = input(">")
+    if command == "LISTEN":
+        data = conn.recv(BUFFER_SIZE)
+        if not data: break
+        print ("received data:", data)
+        conn.send(data)  # echo
+    elif command == "DISCONNECT":   
+        conn.close()
